@@ -126,10 +126,44 @@ document.querySelector('meta[name="description"]')?.setAttribute("content", data
 
 // Brand
 document.getElementById("brand").textContent = "Raul";
+const header = document.getElementById("site-header");
 
 // Nav
-document.getElementById("site-nav").innerHTML = data.nav
+const siteNav = document.getElementById("site-nav");
+const menuToggle = document.getElementById("menu-toggle");
+
+siteNav.innerHTML = data.nav
   .map(({ label, href }) => `<a href="${href}">${label}</a>`).join("");
+
+menuToggle?.addEventListener("click", () => {
+  const isOpen = header.classList.toggle("nav-open");
+  menuToggle.setAttribute("aria-expanded", String(isOpen));
+  menuToggle.setAttribute("aria-label", isOpen ? "Close navigation menu" : "Open navigation menu");
+});
+
+siteNav.addEventListener("click", (event) => {
+  if (event.target.closest("a")) {
+    header.classList.remove("nav-open");
+    menuToggle?.setAttribute("aria-expanded", "false");
+    menuToggle?.setAttribute("aria-label", "Open navigation menu");
+  }
+});
+
+document.addEventListener("click", (event) => {
+  if (!header.contains(event.target)) {
+    header.classList.remove("nav-open");
+    menuToggle?.setAttribute("aria-expanded", "false");
+    menuToggle?.setAttribute("aria-label", "Open navigation menu");
+  }
+});
+
+document.addEventListener("keydown", (event) => {
+  if (event.key === "Escape") {
+    header.classList.remove("nav-open");
+    menuToggle?.setAttribute("aria-expanded", "false");
+    menuToggle?.setAttribute("aria-label", "Open navigation menu");
+  }
+});
 
 // Hero
 document.getElementById("hero-eyebrow").textContent = data.hero.eyebrow;
@@ -187,7 +221,6 @@ document.getElementById("footer-copy").textContent =
   `© ${new Date().getFullYear()} ${data.hero.name}. All rights reserved.`;
 
 // Sticky header shadow + scroll-up
-const header = document.getElementById("site-header");
 const scrollupEl = document.getElementById("scrollup");
 window.addEventListener("scroll", () => {
   const y = window.scrollY;

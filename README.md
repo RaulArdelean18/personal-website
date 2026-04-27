@@ -1,26 +1,47 @@
 # Raul Ardelean - Personal Website
 
-This is a lightweight one-page personal portfolio website built with plain HTML, CSS, and JavaScript.
+Personal portfolio website for Raul Ardelean.
 
-The website presents my academic journey, selected projects, technical skills, resume, and contact links in a clean dark-themed interface.
+Live site: [https://raulardelean.com](https://raulardelean.com)
 
-## Available Scripts
+The site is a lightweight one-page portfolio built with plain HTML, CSS, and JavaScript. It presents my academic journey, projects, skills, resume, and contact links.
 
-In the project directory, you can run:
+## Tech Stack
 
-### `node dev-server.js`
+- HTML5
+- CSS3
+- Vanilla JavaScript
+- Node.js static development server
 
-Runs the website locally using the included static development server.
+No framework, bundler, or package installation is required.
 
-Open [http://127.0.0.1:8080](http://127.0.0.1:8080) to view it in your browser.
+## Run Locally
 
-The page will not automatically reload when you make changes. Refresh the browser manually after editing the files.
+From the repository root:
 
-### `node dev-server.js 3000`
+```bash
+node dev-server.js
+```
 
-Runs the website on a custom port.
+Open:
 
-Open [http://127.0.0.1:3000](http://127.0.0.1:3000) to view it in your browser.
+```text
+http://127.0.0.1:8080
+```
+
+To use a custom port:
+
+```bash
+node dev-server.js 3000
+```
+
+Then open:
+
+```text
+http://127.0.0.1:3000
+```
+
+The local server does not auto-reload. Refresh the browser after editing files.
 
 ## Project Structure
 
@@ -28,68 +49,45 @@ Open [http://127.0.0.1:3000](http://127.0.0.1:3000) to view it in your browser.
 .
 +-- assets/
 |   +-- profile-photo.webp
++-- CNAME
 +-- dev-server.js
 +-- index.html
++-- Raul-Ardelean-CV.pdf
 +-- script.js
 +-- styles.css
-+-- Raul-Ardelean-CV.pdf
 +-- README.md
 ```
 
 ## Main Files
 
-### `index.html`
-
-Contains the main page structure.
-
-The page is divided into the following sections:
-
-- Hero
-- Journey
-- Projects
-- Skills
-- Contact
-- Footer
-
-### `styles.css`
-
-Contains all layout, typography, responsive behavior, colors, buttons, cards, and section styling.
-
-### `script.js`
-
-Contains the website content and renders dynamic sections such as navigation, hero content, skills, projects, journey entries, contact links, and footer text.
-
-Most content changes should be made in this file.
-
-### `dev-server.js`
-
-Provides a small local static server for previewing the website in the browser.
+- `index.html` contains the page structure.
+- `styles.css` contains layout, responsive behavior, typography, colors, and component styling.
+- `script.js` stores most visible content and renders navigation, hero content, journey entries, projects, skills, contact links, and footer text.
+- `dev-server.js` serves the site locally for previewing changes.
+- `CNAME` connects the GitHub Pages deployment to `raulardelean.com`.
 
 ## Editing Content
 
-Most visible content is stored in `script.js`.
+Most content changes should be made in `script.js`.
 
-You can update:
+Common updates:
 
 - `meta` - page title and description
 - `nav` - navigation links
-- `hero` - name, intro, resume link, and social links
-- `skills` - technical skills
+- `hero` - intro, resume link, targets, and social links
 - `journey` - education, achievements, and milestones
 - `projects` - featured projects and GitHub links
+- `skills` - technical skills
 - `contact` - email and social/contact links
+
+Update `Raul-Ardelean-CV.pdf` when replacing the resume file.
 
 ## Deployment
 
-This is the first stage of the website and is currently intended to run locally during development.
+The site is deployed with GitHub Pages and connected to the custom domain:
 
-The next stage is to publish the website online and connect it to a personal domain.
+```text
+raulardelean.com
+```
 
-## Tech Stack
-
-- HTML5
-- CSS3
-- Vanilla JavaScript
-- Node.js local development server
-
-No React, frontend framework, bundler, or package installation is required.
+Changes pushed to the repository's main branch are reflected on the live site after GitHub Pages finishes deploying.
