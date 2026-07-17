@@ -1,7 +1,7 @@
 const data = {
   meta: {
     title: "Raul Ardelean",
-    description: "CS student targeting Software Engineering and Low-Latency Systems."
+    description: "CS student targeting Software Engineering and Machine Learning."
   },
   nav: [
     { label: "Home",     href: "#home" },
@@ -13,8 +13,8 @@ const data = {
   hero: {
     eyebrow: "B.Sc. Computer Science · Babeș-Bolyai University",
     name: "Raul Ardelean",
-    summary: "CS student at UBB and algorithmic problem setter targeting Low-Latency Software Engineering and Software Engineering.",
-    targets: ["Low-Latency Systems", "Software Engineering"],
+    summary: "CS student at UBB and algorithmic problem setter targeting Machine Learning and Software Engineering.",
+    targets: ["Machine Learning", "Software Engineering"],
     ctas: [
       { label: "Say Hello",    href: "mailto:raulardelean10@gmail.com", primary: true },
       { label: "Open Resume",  href: "./Raul-Ardelean-CV.pdf",          primary: false }
@@ -76,11 +76,9 @@ const data = {
     "SQL",
     "Algorithms",
     "Data Structures",
-    "Low-Latency Systems",
+    "Machine Learning",
     "Complexity Analysis",
     "Graph Theory",
-    "Competitive Programming",
-    "Test Generation"
   ],
   contact: [
     { label: "Email",     href: "mailto:raulardelean10@gmail.com" },
@@ -105,19 +103,27 @@ const initials = (name) => name.split(" ").filter(Boolean).slice(0,2).map(w => w
 
 const renderTimeline = () => {
   document.getElementById("timeline").innerHTML = data.journey
-    .map(({ year, type, typeLabel, title, sub, points }) => `
-      <div class="timeline-entry">
-        <div class="timeline-top">
-          <span class="timeline-year">${year}</span>
-          <span class="timeline-type ${type}">${typeLabel}</span>
+    .map(({ year, type, typeLabel, title, sub, points }, i) => {
+      const side = i % 2 === 0 ? "left" : "right";
+      const num = String(i + 1).padStart(2, "0");
+      return `
+      <div class="timeline-entry timeline-entry--${side}">
+        <span class="timeline-dot ${type}"></span>
+        <div class="timeline-card">
+          <span class="timeline-num">${num}</span>
+          <div class="timeline-top">
+            <span class="timeline-year">${year}</span>
+            <span class="timeline-type ${type}"><i></i>${typeLabel}</span>
+          </div>
+          <h3 class="timeline-title">${title}</h3>
+          <p class="timeline-sub">${sub}</p>
+          <ul class="timeline-points">
+            ${points.map(p => `<li>${p}</li>`).join("")}
+          </ul>
         </div>
-        <h3 class="timeline-title">${title}</h3>
-        <p class="timeline-sub">${sub}</p>
-        <ul class="timeline-points">
-          ${points.map(p => `<li>${p}</li>`).join("")}
-        </ul>
       </div>
-    `).join("");
+    `;
+    }).join("");
 };
 
 // ── Render ──
@@ -155,6 +161,21 @@ document.addEventListener("click", (event) => {
     menuToggle?.setAttribute("aria-expanded", "false");
     menuToggle?.setAttribute("aria-label", "Open navigation menu");
   }
+});
+
+// Theme toggle
+const themeToggle = document.getElementById("theme-toggle");
+const setTheme = (theme) => {
+  document.documentElement.setAttribute("data-theme", theme);
+  localStorage.setItem("theme", theme);
+  themeToggle?.setAttribute("aria-label", theme === "light" ? "Switch to dark theme" : "Switch to light theme");
+};
+
+setTheme(document.documentElement.getAttribute("data-theme") === "light" ? "light" : "dark");
+
+themeToggle?.addEventListener("click", () => {
+  const isLight = document.documentElement.getAttribute("data-theme") === "light";
+  setTheme(isLight ? "dark" : "light");
 });
 
 document.addEventListener("keydown", (event) => {
