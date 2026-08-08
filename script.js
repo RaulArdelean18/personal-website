@@ -56,6 +56,13 @@ const data = {
   ],
   projects: [
     {
+      year: "Aug 2026",
+      title: "GhostFleet",
+      desc: "A ride-dispatch simulator for Cluj-Napoca exploring routing, spatial indexing, and fleet-scale assignment optimization. Real-time routing via A* ALT (landmarks + triangle inequality), a uniform-grid spatial index with constant-time updates for idle-vehicle k-NN queries, and a min-cost max-flow solver (Dijkstra + Johnson potentials) for fleet-wide optimal matching. Handles 10,000 concurrent vehicles and requests on the real Cluj-Napoca road graph, matching 99.7% of riders within 40 ticks at ~127 MB peak memory.",
+      stack: ["C++17", "Python", "FastAPI", "WebSocket", "MapLibre GL JS", "Vite", "MySQL", "OpenStreetMap"],
+      links: [{ label: "GitHub", href: "https://github.com/RaulArdelean18/ghostfleet" }]
+    },
+    {
       year: "Mar 2026",
       title: "Polen — ONI 9th Grade Problem",
       desc: "Created an official problem used in the 9th grade contest set at the Romanian National Olympiad in Informatics. Built the complete contest package: C++ official solution, statements, editorial, test generator, validators, and subtask-based test design. Focused on algorithmic correctness, edge-case coverage, and performance-aware input generation.",
