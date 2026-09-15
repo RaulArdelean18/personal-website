@@ -37,17 +37,17 @@ const data = {
         "Scientific Committee – Romanian National Olympiad in Informatics",
         "Scientific Committee – International Informatics Olympiad in Teams (IIOT)",
         "Scientific Committee – Grigore Moisil Inter-County Mathematics and Informatics Contest",
-        "Competitive Programming Mentor at Centrul de Excelenta Maramures"
+        "Competitive Programming Tutor at Nouă Ne Pasă Foundation - Hai la Olimpiadă! Program · Cluj-Napoca",
+        "Competitive Programming Tutor at Centrul de Excelență Maramureș · Baia Mare",
       ]
     },
     {
       year: "2021 – 2025",
       type: "edu",
       typeLabel: "Education",
-      title: "Vasile Lucaciu National College",
+      title: "Vasile Lucaciu National High School",
       sub: "Mathematics & Computer Science · Baia Mare",
       points: [
-        "Built a strong competitive programming background",
         "Qualified twice for the National Olympiad in Informatics",
         "National stage – AcadNet Software Interoperability",
         "Honourable Mention – Grigore Moisil Inter-County Mathematics and Informatics Contest"
