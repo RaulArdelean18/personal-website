@@ -17,7 +17,7 @@ const data = {
     targets: ["Machine Learning", "Software Engineering"],
     ctas: [
       { label: "Say Hello",    href: "mailto:raulardelean10@gmail.com", primary: true },
-      { label: "Open Resume",  href: "./Raul-Ardelean_CV.pdf",          primary: false }
+      { label: "Open Resume",  href: "./Raul_Ardelean_CV.pdf",          primary: false }
     ],
     socials: [
       { label: "GitHub",   href: "https://github.com/RaulArdelean18" },
